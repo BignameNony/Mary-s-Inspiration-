@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Daily Inspiration</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background: linear-gradient(135deg, #6a0dad, #ffd700); /* Royal Purple + Gold Glow */
+      color: #ffd700; /* Gold text */
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    h1 {
+      font-size: 3em;
+      margin-bottom: 20px;
+      text-shadow: 0 0 15px #fff, 0 0 30px #ffd700;
+    }
+    #quote {
+      font-size: 2.4em; /* larger font */
+      margin: 20px;
+      font-style: italic;
+      animation: fadeIn 2s ease-in-out, glowPulse 3s infinite alternate;
+      color: #ffd700;
+    }
+    button {
+      padding: 12px 24px;
+      font-size: 1.2em;
+      border: none;
+      border-radius: 8px;
+      background-color: #ff6f61;
+      color: white;
+      cursor: pointer;
+      transition: 0.3s;
+      box-shadow: 0 0 10px #ffd700;
+    }
+    button:hover {
+      background-color: #ffd700;
+      color: #6a0dad;
+      box-shadow: 0 0 20px #fff, 0 0 40px #ffd700;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    @keyframes glowPulse {
+      0% { text-shadow: 0 0 10px #ffd700, 0 0 20px #ffd700; }
+      50% { text-shadow: 0 0 20px #fff, 0 0 40px #ffd700; }
+      100% { text-shadow: 0 0 10px #ffd700, 0 0 20px #ffd700; }
+    }
+  </style>
+</head>
+<body>
+  <h1>🌟 Daily Inspiration 🌟</h1>
+  <p id="quote">Click the button for your quote!</p>
+  <button onclick="newQuote()">Get Inspired</button>
+
+  <script>
+    const quotes = [
+      "Shine bright, the world needs your light. — by Eze Mary",
+      "Small steps every day lead to big results. — by Eze Mary",
+      "Your smile is your superpower. — by Eze Mary",
+      "Courage is the spark that ignites success. — by Eze Mary",
+      "You are stronger than you think. — by Eze Mary",
+      "Be the reason someone smiles today. — by Eze Mary",
+      "Don't wait for the light at the end of the tunnel; light that thing up yourself. — by Eze Mary",
+      "Kindness is free—sprinkle that stuff everywhere. — by Eze Mary",
+      "There is something 'bright' in every day; sometimes you just have to look a little closer. — by Eze Mary",
+      "You are the artist of your own life. Don’t hand the paintbrush to anyone else. — by Eze Mary",
+      "The world is full of sunshine when you bring your own. — by Eze Mary"
+    ];
+
+    function newQuote() {
+      const randomIndex = Math.floor(Math.random() * quotes.length);
+      const quoteElement = document.getElementById("quote");
+      quoteElement.innerText = quotes[randomIndex];
+      
+      // Restart animation
+      quoteElement.style.animation = "none";
+      void quoteElement.offsetWidth; // reset trick
+      quoteElement.style.animation = "fadeIn 2s ease-in-out, glowPulse 3s infinite alternate";
+    }
+  </script>
+</body>
+</html>
